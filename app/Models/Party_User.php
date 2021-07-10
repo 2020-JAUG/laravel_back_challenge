@@ -4,17 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
-class Post extends Model
+//Esta es la tabla pivote para ER muchos a muchos
+class Party_User extends Model
 {
     use HasFactory;
-    protected $fillable = ['post', 'idUser', 'idParty'];
+    protected $fillable = ['idUser', 'idParty'];
 
     public function user()
     {
         return $this->belongsTo(User::class);
     }
-    //ER con las tablas
+
     public function party()
     {
         return $this->belongsTo(Party::class);
